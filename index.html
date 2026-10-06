@@ -327,6 +327,56 @@
       animation: hintPulse 2.2s ease-in-out infinite;
     }
 
+    /* Busta bloccata fino all'orario di apertura */
+    .countdown {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin: 0;
+    }
+
+    .countdown-time {
+      display: flex;
+      gap: clamp(10px, 3vw, 18px);
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 500;
+      font-size: clamp(34px, 7vw, 52px);
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .countdown-time span {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      min-width: 1.6em;
+    }
+
+    .countdown-time small {
+      font-family: var(--mono);
+      font-style: normal;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #DDD0FF;
+    }
+
+    .is-locked .env-btn {
+      cursor: not-allowed
+    }
+
+    .is-locked .seal-in {
+      animation: none;
+      background: #8E7BC9
+    }
+
+    .is-locked .env-float.nope {
+      animation: nope .45s ease both
+    }
+
     /* Apertura della busta */
     .is-opening {
       animation: stageOut .3s ease-in 1.25s both
@@ -692,6 +742,30 @@
       }
     }
 
+    @keyframes nope {
+
+      0%,
+      100% {
+        transform: translateX(0)
+      }
+
+      20% {
+        transform: translateX(-10px) rotate(-2deg)
+      }
+
+      40% {
+        transform: translateX(9px) rotate(2deg)
+      }
+
+      60% {
+        transform: translateX(-6px)
+      }
+
+      80% {
+        transform: translateX(4px)
+      }
+    }
+
     @keyframes rise {
       from {
         opacity: 0;
@@ -894,7 +968,6 @@
     <!-- 1. Busta chiusa -->
     <section class="envelope-screen" id="screen-envelope">
       <div class="intro">
-        <p class="label">Solo per i tuoi occhi</p>
         <h1 class="display">C'è una cosa per te, Bubu.</h1>
       </div>
 
@@ -921,7 +994,16 @@
         <span class="env-shadow"></span>
       </button>
 
-      <p class="hint">Tocca il sigillo per aprire</p>
+      <div class="countdown" id="countdown" role="timer" aria-live="off" hidden>
+        <p class="label">Si potrà aprire tra</p>
+        <p class="countdown-time" style="margin: 0">
+          <span><b id="cd-h">00</b><small>ore</small></span>
+          <span><b id="cd-m">00</b><small>min</small></span>
+          <span><b id="cd-s">00</b><small>sec</small></span>
+        </p>
+      </div>
+
+      <p class="hint" id="hint">Tocca il sigillo per aprire</p>
     </section>
 
     <!-- 2. Lettera con l'invito -->
@@ -935,8 +1017,13 @@
         <h2 class="display" tabindex="-1">Sei invitata a un appuntamento segreto.</h2>
       </div>
 
-      <p class="letter-body">Dolcissima Bubu, tieniti libera. Dudu ti invita ad un appuntamento segreto. Dove non te lo
-        dico, gne. Ti Amo.</p>
+      <p class="letter-body">Pregiatissima e dolcissima Bubu, orsù, tieniti sgombra da ogni impegno: il tuo umile
+        Dudu ha l'onore di convocarti a un convegno segretissimo. Ivi ci daremo a sollazzi e baloccamenti d'ogni
+        sorta, come due pargoli scapestrati, tra lazzi e facezie, finché non ci mancherà il fiato per le gran
+        risate.</p>
+
+      <p class="letter-body">All'uopo ti si raccomanda abbigliamento acconcio e comodo. Dove si terrà codesto
+        convegno non te lo dico, gne. Ti amo.</p>
 
       <dl class="details">
         <div>
@@ -1024,8 +1111,58 @@
         });
       }
 
+      // Apertura consentita da oggi alle 18:30 (ora italiana)
+      var OPEN_AT = new Date('2026-10-06T18:30:00+02:00').getTime();
+      var countdown = document.getElementById('countdown');
+      var hint = document.getElementById('hint');
+      var envFloat = screens.envelope.querySelector('.env-float');
+      var cd = {
+        h: document.getElementById('cd-h'),
+        m: document.getElementById('cd-m'),
+        s: document.getElementById('cd-s')
+      };
+      var timer = null;
+
+      function pad(n) { return (n < 10 ? '0' : '') + n; }
+
+      function isLocked() { return Date.now() < OPEN_AT; }
+
+      function tick() {
+        var left = Math.max(0, Math.ceil((OPEN_AT - Date.now()) / 1000));
+        if (left === 0) {
+          clearInterval(timer);
+          screens.envelope.classList.remove('is-locked');
+          countdown.hidden = true;
+          hint.hidden = false;
+          openBtn.setAttribute('aria-label', 'Apri la busta');
+          return;
+        }
+        cd.h.textContent = pad(Math.floor(left / 3600));
+        cd.m.textContent = pad(Math.floor(left % 3600 / 60));
+        cd.s.textContent = pad(left % 60);
+      }
+
+      if (isLocked()) {
+        screens.envelope.classList.add('is-locked');
+        countdown.hidden = false;
+        hint.hidden = true;
+        openBtn.setAttribute('aria-label', 'La busta si potrà aprire oggi alle 18:30');
+        tick();
+        timer = setInterval(tick, 1000);
+      }
+
+      envFloat.addEventListener('animationend', function () {
+        envFloat.classList.remove('nope');
+      });
+
       openBtn.addEventListener('click', function () {
         if (opening) return;
+        if (isLocked()) {
+          envFloat.classList.remove('nope');
+          envFloat.getBoundingClientRect();
+          envFloat.classList.add('nope');
+          return;
+        }
         opening = true;
         if (calm) {
           show('letter');
