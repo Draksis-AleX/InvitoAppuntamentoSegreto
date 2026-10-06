@@ -1,659 +1,1046 @@
 <!doctype html>
 <html lang="it">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#3D17B0">
-<title>Un invito per te</title>
-<meta property="og:title" content="Un invito per te">
-<meta property="og:description" content="Solo per i tuoi occhi.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23E5105E' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=DM+Mono:wght@400;500&amp;family=Figtree:wght@400;500;600&amp;display=swap" rel="stylesheet">
-<style>
-:root {
-  --accent: #E5105E;
-  --ground: #3D17B0;
-  --moon: #4C22CC;
-  --sun: #FFD84A;
-  --ink: #1E0A52;
-  --ink-soft: #3F2A78;
-  --label: #5B3FA8;
-  --serif: 'Bodoni Moda', Didot, 'Bodoni MT', Georgia, serif;
-  --sans: Figtree, system-ui, 'Segoe UI', sans-serif;
-  --mono: 'DM Mono', ui-monospace, 'SF Mono', Menlo, monospace;
-}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#3D17B0">
+  <title>Un invito per te</title>
+  <meta property="og:title" content="Un invito per te">
+  <meta property="og:description" content="Solo per i tuoi occhi.">
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23E5105E' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=DM+Mono:wght@400;500&amp;family=Figtree:wght@400;500;600&amp;display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --accent: #E5105E;
+      --ground: #3D17B0;
+      --moon: #4C22CC;
+      --sun: #FFD84A;
+      --ink: #1E0A52;
+      --ink-soft: #3F2A78;
+      --label: #5B3FA8;
+      --serif: 'Bodoni Moda', Didot, 'Bodoni MT', Georgia, serif;
+      --sans: Figtree, system-ui, 'Segoe UI', sans-serif;
+      --mono: 'DM Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+    }
 
-* { box-sizing: border-box }
-html, body { margin: 0 }
-body { background: var(--ground) }
-[hidden] { display: none !important }
+    * {
+      box-sizing: border-box
+    }
 
-/* ---------- Cielo ---------- */
-.sky {
-  position: relative;
-  overflow: hidden;
-  min-height: 100vh;
-  min-height: 100dvh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: clamp(28px, 6vw, 64px) clamp(16px, 4vw, 48px);
-  background: var(--ground);
-  color: #FFFFFF;
-  font-family: var(--sans);
-}
-.stars { position: absolute; inset: 0 }
-.stars-1 {
-  background-image:
-    radial-gradient(circle at 24px 36px, #FFFFFF 1.2px, transparent 1.8px),
-    radial-gradient(circle at 150px 96px, #FFD84A 1.4px, transparent 2.1px),
-    radial-gradient(circle at 228px 204px, #FF8FC0 1.3px, transparent 2px),
-    radial-gradient(circle at 84px 236px, #FFFFFF 1px, transparent 1.6px);
-  background-size: 268px 268px;
-  animation: twinkle 2.8s ease-in-out infinite alternate;
-}
-.stars-2 {
-  background-image:
-    radial-gradient(circle at 60px 40px, #FFD84A 1.1px, transparent 1.7px),
-    radial-gradient(circle at 300px 120px, #FFFFFF 1.3px, transparent 2px),
-    radial-gradient(circle at 180px 290px, #FFFFFF 1px, transparent 1.6px),
-    radial-gradient(circle at 20px 200px, #FF8FC0 1.2px, transparent 1.8px),
-    radial-gradient(circle at 250px 330px, #FFD84A 1.2px, transparent 1.8px);
-  background-size: 347px 347px;
-  animation: twinkle 4.1s ease-in-out -1.5s infinite alternate;
-}
-.stars-3 {
-  background-image:
-    radial-gradient(circle at 110px 70px, #FFFFFF 1.8px, transparent 2.5px),
-    radial-gradient(circle at 380px 260px, #FFD84A 1.8px, transparent 2.5px),
-    radial-gradient(circle at 40px 380px, #FFFFFF 1.6px, transparent 2.3px);
-  background-size: 431px 431px;
-  animation: twinkle 5.3s ease-in-out -3s infinite alternate;
-}
-.moon {
-  position: absolute;
-  left: 50%;
-  top: 54%;
-  width: min(640px, 124vw);
-  aspect-ratio: 1 / 1;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  background: var(--moon);
-  border: 1px solid #6A40E8;
-}
-.shoot {
-  position: absolute;
-  top: 9%;
-  left: -140px;
-  width: 130px;
-  height: 2px;
-  border-radius: 2px;
-  background: linear-gradient(90deg, transparent, var(--sun));
-  animation: shoot 9s linear 2s infinite both;
-}
+    html,
+    body {
+      margin: 0
+    }
 
-/* ---------- Testi condivisi ---------- */
-.label {
-  margin: 0;
-  font-family: var(--mono);
-  font-size: 13px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--sun);
-}
-.display {
-  margin: 0;
-  font-family: var(--serif);
-  font-style: italic;
-  font-weight: 500;
-  line-height: 1.04;
-  text-wrap: balance;
-}
-.display:focus { outline: none }
-.heart { display: block; fill: currentColor }
+    body {
+      background: var(--ground)
+    }
 
-/* ---------- 1. Busta ---------- */
-.envelope-screen {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 640px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 28px;
-  text-align: center;
-}
-.intro {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;
-  animation: rise .7s cubic-bezier(.2,.8,.2,1) both;
-}
-.intro .display { font-size: clamp(36px, 6.4vw, 64px) }
+    [hidden] {
+      display: none !important
+    }
 
-.env-btn {
-  appearance: none;
-  display: block;
-  margin: 0;
-  padding: 12px;
-  border: 0;
-  border-radius: 16px;
-  background: none;
-  color: inherit;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-}
-.env-float { display: block; animation: bob 4.6s ease-in-out infinite }
-.env {
-  position: relative;
-  display: block;
-  width: min(380px, 76vw);
-  aspect-ratio: 38 / 25;
-  perspective: 1000px;
-  transition: transform .25s cubic-bezier(.3,1.4,.5,1);
-}
-.env-btn:hover .env { transform: scale(1.03) }
-.env > span { position: absolute; display: block }
-.env-back { inset: 0; z-index: 1; border-radius: 12px; background: #E0A100 }
-.env .peek {
-  left: 6%;
-  right: 6%;
-  top: 8%;
-  height: 84%;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 9% 10%;
-  border-radius: 6px;
-  background: #FFFFFF;
-}
-.peek i { display: block; height: 4px; border-radius: 2px; background: #CDBDF5 }
-.peek i:nth-child(1) { width: 46% }
-.peek i:nth-child(2) { width: 78% }
-.peek i:nth-child(3) { width: 64% }
-.env-front { inset: 0; z-index: 3; overflow: hidden; border-radius: 12px }
-.env-front svg { display: block; width: 100%; height: 100% }
-.flap {
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 58%;
-  z-index: 4;
-  transform-origin: top center;
-  filter: drop-shadow(0 4px 5px rgba(40, 12, 110, 0.3));
-}
-.flap i {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background: #FFC61A;
-  clip-path: polygon(0 0, 100% 0, 50% 100%);
-}
-.seal {
-  left: 50%;
-  top: 58%;
-  width: 21%;
-  aspect-ratio: 1 / 1;
-  z-index: 5;
-  transform: translate(-50%, -50%);
-}
-.seal-in {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: var(--accent);
-  color: #FFFFFF;
-  box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.28), 0 6px 14px rgba(40, 12, 110, 0.45);
-  animation: beat 1.8s ease-in-out infinite;
-}
-.seal-in .heart { width: 48%; height: 48% }
-.env-shadow {
-  display: block;
-  width: 62%;
-  height: 14px;
-  margin: 22px auto 0;
-  border-radius: 50%;
-  background: #240A75;
-  animation: shadowBob 4.6s ease-in-out infinite;
-}
-.hint {
-  margin: 0;
-  font-family: var(--mono);
-  font-size: 13px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #DDD0FF;
-  animation: hintPulse 2.2s ease-in-out infinite;
-}
+    /* ---------- Cielo ---------- */
+    .sky {
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(28px, 6vw, 64px) clamp(16px, 4vw, 48px);
+      background: var(--ground);
+      color: #FFFFFF;
+      font-family: var(--sans);
+    }
 
-/* Apertura della busta */
-.is-opening { animation: stageOut .3s ease-in 1.25s both }
-.is-opening .env-btn { cursor: default }
-.is-opening .seal-in { animation: sealPop .4s ease-in both }
-.is-opening .flap { animation: flapOpen .55s cubic-bezier(.4,0,.2,1) .3s both }
-.is-opening .peek { animation: peekUp .55s cubic-bezier(.2,.8,.2,1) .8s both }
-.is-opening .hint { animation: fadeOut .25s ease both }
+    .stars {
+      position: absolute;
+      inset: 0
+    }
 
-/* ---------- 2. Lettera ---------- */
-.letter {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 540px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  padding: clamp(28px, 6vw, 48px);
-  border-radius: 6px;
-  background: #FFFFFF;
-  color: var(--ink);
-  box-shadow: 0 30px 60px rgba(24, 6, 80, 0.55), 0 2px 0 #D9CCFF;
-  animation: letterIn .8s cubic-bezier(.2,.8,.2,1) both;
-}
-.letter > * { animation: rise .6s cubic-bezier(.2,.8,.2,1) both }
-.letter-head { display: flex; flex-direction: column; gap: 14px; animation-delay: .25s }
-.letter-head .label { font-size: 12px; color: var(--label) }
-.letter-head .display { padding-right: 40px; font-size: clamp(32px, 5.2vw, 46px) }
-.letter-body {
-  margin: 0;
-  font-size: 17px;
-  line-height: 1.6;
-  color: var(--ink-soft);
-  text-wrap: pretty;
-  animation-delay: .4s;
-}
-.details {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  border-bottom: 1px dashed #D3C2DF;
-  animation-delay: .55s;
-}
-.details div {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 14px 0;
-  border-top: 1px dashed #D3C2DF;
-}
-.details dt {
-  font-family: var(--mono);
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--label);
-}
-.details dd {
-  margin: 0;
-  font-family: var(--serif);
-  font-size: 22px;
-  font-weight: 500;
-  text-align: right;
-}
-.secret {
-  display: inline-block;
-  padding: 7px 14px;
-  background: var(--sun);
-  color: var(--ink);
-  font-family: var(--mono);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  animation: wiggle 5s ease-in-out 2s infinite;
-}
-.letter-foot {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px 24px;
-  padding-top: 4px;
-  animation-delay: .75s;
-}
-.cta-ring { position: relative; display: inline-flex; color: var(--accent) }
-.cta-ring::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 999px;
-  border: 2px solid currentColor;
-  pointer-events: none;
-  animation: ring 1.8s ease-out 1.6s infinite both;
-}
-.cta {
-  appearance: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  min-height: 56px;
-  padding: 0 34px;
-  border: 0;
-  border-radius: 999px;
-  background: var(--accent);
-  color: #FFFFFF;
-  font-family: var(--sans);
-  font-size: 18px;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  cursor: pointer;
-  box-shadow: 0 10px 22px rgba(30, 10, 82, 0.3);
-  transition: transform .15s ease, filter .15s ease;
-  -webkit-tap-highlight-color: transparent;
-}
-.cta .heart { width: 20px; height: 20px }
-.cta:hover { transform: translateY(-2px); filter: brightness(1.08) }
-.cta:active { transform: translateY(1px) scale(.98) }
-.cta:focus-visible, .env-btn:focus-visible { outline: 3px solid var(--sun); outline-offset: 4px }
-.sign { font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--ink-soft) }
+    .stars-1 {
+      background-image:
+        radial-gradient(circle at 24px 36px, #FFFFFF 1.2px, transparent 1.8px),
+        radial-gradient(circle at 150px 96px, #FFD84A 1.4px, transparent 2.1px),
+        radial-gradient(circle at 228px 204px, #FF8FC0 1.3px, transparent 2px),
+        radial-gradient(circle at 84px 236px, #FFFFFF 1px, transparent 1.6px);
+      background-size: 268px 268px;
+      animation: twinkle 2.8s ease-in-out infinite alternate;
+    }
 
-.letter > .stamp {
-  position: absolute;
-  top: -22px;
-  right: -10px;
-  width: 72px;
-  height: 72px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: var(--accent);
-  color: #FFFFFF;
-  box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.28), 0 8px 16px rgba(40, 12, 110, 0.35);
-  animation: stampIn .5s cubic-bezier(.3,1.4,.5,1) .9s both;
-}
-.stamp .heart { width: 32px; height: 32px }
+    .stars-2 {
+      background-image:
+        radial-gradient(circle at 60px 40px, #FFD84A 1.1px, transparent 1.7px),
+        radial-gradient(circle at 300px 120px, #FFFFFF 1.3px, transparent 2px),
+        radial-gradient(circle at 180px 290px, #FFFFFF 1px, transparent 1.6px),
+        radial-gradient(circle at 20px 200px, #FF8FC0 1.2px, transparent 1.8px),
+        radial-gradient(circle at 250px 330px, #FFD84A 1.2px, transparent 1.8px);
+      background-size: 347px 347px;
+      animation: twinkle 4.1s ease-in-out -1.5s infinite alternate;
+    }
 
-/* ---------- 3. Accettato ---------- */
-.accepted {
-  position: relative;
-  z-index: 2;
-  max-width: 640px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 22px;
-  text-align: center;
-}
-.accepted > * { animation: rise .6s cubic-bezier(.2,.8,.2,1) both }
-.accepted > .big-heart {
-  width: 96px;
-  height: 96px;
-  fill: var(--accent);
-  stroke: #FFFFFF;
-  animation: popIn .6s cubic-bezier(.3,1.5,.5,1) both, beat 1.8s ease-in-out .7s infinite;
-}
-.accepted .label { animation-delay: .3s }
-.accepted .display { font-size: clamp(48px, 9vw, 92px); line-height: 1; animation-delay: .45s }
-.accepted-body {
-  margin: 0;
-  max-width: 460px;
-  font-size: 18px;
-  line-height: 1.6;
-  color: #E9E0FF;
-  text-wrap: pretty;
-  animation-delay: .6s;
-}
-.accepted .sign { font-size: 22px; color: #FFFFFF; animation-delay: .75s }
+    .stars-3 {
+      background-image:
+        radial-gradient(circle at 110px 70px, #FFFFFF 1.8px, transparent 2.5px),
+        radial-gradient(circle at 380px 260px, #FFD84A 1.8px, transparent 2.5px),
+        radial-gradient(circle at 40px 380px, #FFFFFF 1.6px, transparent 2.3px);
+      background-size: 431px 431px;
+      animation: twinkle 5.3s ease-in-out -3s infinite alternate;
+    }
 
-.hearts { position: absolute; inset: 0; z-index: 1; overflow: hidden; pointer-events: none }
-.hearts svg { position: absolute; bottom: -48px; animation: heartRise linear infinite both }
+    .moon {
+      position: absolute;
+      left: 50%;
+      top: 54%;
+      width: min(640px, 124vw);
+      aspect-ratio: 1 / 1;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background: var(--moon);
+      border: 1px solid #6A40E8;
+    }
 
-/* ---------- Animazioni ---------- */
-@keyframes twinkle {
-  from { opacity: .2 }
-  to { opacity: 1 }
-}
-@keyframes shoot {
-  0%, 84% { transform: translate(0, 0) rotate(16deg); opacity: 0 }
-  86% { opacity: 1 }
-  100% { transform: translate(115vw, 33vw) rotate(16deg); opacity: 0 }
-}
-@keyframes bob {
-  0%, 100% { transform: translateY(0) rotate(-1.5deg) }
-  50% { transform: translateY(-10px) rotate(1deg) }
-}
-@keyframes shadowBob {
-  0%, 100% { transform: scaleX(1); opacity: .6 }
-  50% { transform: scaleX(.84); opacity: .35 }
-}
-@keyframes beat {
-  0%, 48%, 100% { transform: scale(1) }
-  12% { transform: scale(1.14) }
-  24% { transform: scale(1) }
-  36% { transform: scale(1.1) }
-}
-@keyframes hintPulse {
-  0%, 100% { opacity: .55 }
-  50% { opacity: 1 }
-}
-@keyframes rise {
-  from { opacity: 0; transform: translateY(14px) }
-  to { opacity: 1; transform: none }
-}
-@keyframes sealPop {
-  0% { transform: scale(1) }
-  40% { transform: scale(1.25) }
-  100% { transform: scale(0) rotate(40deg); opacity: 0 }
-}
-@keyframes flapOpen {
-  0% { transform: rotateX(0deg); z-index: 4 }
-  49% { z-index: 4 }
-  50% { z-index: 1 }
-  100% { transform: rotateX(180deg); z-index: 1 }
-}
-@keyframes peekUp {
-  to { transform: translateY(-62%) }
-}
-@keyframes stageOut {
-  to { opacity: 0; transform: scale(1.06) translateY(-12px) }
-}
-@keyframes fadeOut {
-  to { opacity: 0 }
-}
-@keyframes letterIn {
-  0% { opacity: 0; transform: translateY(60px) scale(.9) rotate(2deg) }
-  70% { opacity: 1; transform: translateY(-6px) scale(1.01) rotate(-1deg) }
-  100% { opacity: 1; transform: translateY(0) scale(1) rotate(-.6deg) }
-}
-@keyframes stampIn {
-  0% { opacity: 0; transform: scale(2.4) rotate(-20deg) }
-  60% { opacity: 1; transform: scale(.92) rotate(14deg) }
-  100% { opacity: 1; transform: scale(1) rotate(12deg) }
-}
-@keyframes wiggle {
-  0%, 86%, 100% { transform: rotate(-2deg) }
-  89% { transform: rotate(3deg) }
-  92% { transform: rotate(-5deg) }
-  95% { transform: rotate(2deg) }
-}
-@keyframes ring {
-  0% { transform: scale(1); opacity: .7 }
-  100% { transform: scale(1.22, 1.6); opacity: 0 }
-}
-@keyframes popIn {
-  0% { opacity: 0; transform: scale(.2) }
-  60% { opacity: 1; transform: scale(1.2) }
-  100% { opacity: 1; transform: scale(1) }
-}
-@keyframes heartRise {
-  0% { transform: translate(0, 0) rotate(-8deg) scale(.6); opacity: 0 }
-  12% { opacity: .9 }
-  50% { transform: translate(18px, -55vh) rotate(8deg) scale(1) }
-  100% { transform: translate(-12px, -115vh) rotate(-6deg) scale(1); opacity: 0 }
-}
+    .shoot {
+      position: absolute;
+      top: 9%;
+      left: -140px;
+      width: 130px;
+      height: 2px;
+      border-radius: 2px;
+      background: linear-gradient(90deg, transparent, var(--sun));
+      animation: shoot 9s linear 2s infinite both;
+    }
 
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition: none !important }
-}
-</style>
+    /* ---------- Testi condivisi ---------- */
+    .label {
+      margin: 0;
+      font-family: var(--mono);
+      font-size: 13px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sun);
+    }
+
+    .display {
+      margin: 0;
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 500;
+      line-height: 1.04;
+      text-wrap: balance;
+    }
+
+    .display:focus {
+      outline: none
+    }
+
+    .heart {
+      display: block;
+      fill: currentColor
+    }
+
+    /* ---------- 1. Busta ---------- */
+    .envelope-screen {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 640px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+      text-align: center;
+    }
+
+    .intro {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      animation: rise .7s cubic-bezier(.2, .8, .2, 1) both;
+    }
+
+    .intro .display {
+      font-size: clamp(36px, 6.4vw, 64px)
+    }
+
+    .env-btn {
+      appearance: none;
+      display: block;
+      margin: 0;
+      padding: 12px;
+      border: 0;
+      border-radius: 16px;
+      background: none;
+      color: inherit;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .env-float {
+      display: block;
+      animation: bob 4.6s ease-in-out infinite
+    }
+
+    .env {
+      position: relative;
+      display: block;
+      width: min(380px, 76vw);
+      aspect-ratio: 38 / 25;
+      perspective: 1000px;
+      transition: transform .25s cubic-bezier(.3, 1.4, .5, 1);
+    }
+
+    .env-btn:hover .env {
+      transform: scale(1.03)
+    }
+
+    .env>span {
+      position: absolute;
+      display: block
+    }
+
+    .env-back {
+      inset: 0;
+      z-index: 1;
+      border-radius: 12px;
+      background: #E0A100
+    }
+
+    .env .peek {
+      left: 6%;
+      right: 6%;
+      top: 8%;
+      height: 84%;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 9% 10%;
+      border-radius: 6px;
+      background: #FFFFFF;
+    }
+
+    .peek i {
+      display: block;
+      height: 4px;
+      border-radius: 2px;
+      background: #CDBDF5
+    }
+
+    .peek i:nth-child(1) {
+      width: 46%
+    }
+
+    .peek i:nth-child(2) {
+      width: 78%
+    }
+
+    .peek i:nth-child(3) {
+      width: 64%
+    }
+
+    .env-front {
+      inset: 0;
+      z-index: 3;
+      overflow: hidden;
+      border-radius: 12px
+    }
+
+    .env-front svg {
+      display: block;
+      width: 100%;
+      height: 100%
+    }
+
+    .flap {
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 58%;
+      z-index: 4;
+      transform-origin: top center;
+      filter: drop-shadow(0 4px 5px rgba(40, 12, 110, 0.3));
+    }
+
+    .flap i {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: #FFC61A;
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+    }
+
+    .seal {
+      left: 50%;
+      top: 58%;
+      width: 21%;
+      aspect-ratio: 1 / 1;
+      z-index: 5;
+      transform: translate(-50%, -50%);
+    }
+
+    .seal-in {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #FFFFFF;
+      box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.28), 0 6px 14px rgba(40, 12, 110, 0.45);
+      animation: beat 1.8s ease-in-out infinite;
+    }
+
+    .seal-in .heart {
+      width: 48%;
+      height: 48%
+    }
+
+    .env-shadow {
+      display: block;
+      width: 62%;
+      height: 14px;
+      margin: 22px auto 0;
+      border-radius: 50%;
+      background: #240A75;
+      animation: shadowBob 4.6s ease-in-out infinite;
+    }
+
+    .hint {
+      margin: 0;
+      font-family: var(--mono);
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #DDD0FF;
+      animation: hintPulse 2.2s ease-in-out infinite;
+    }
+
+    /* Apertura della busta */
+    .is-opening {
+      animation: stageOut .3s ease-in 1.25s both
+    }
+
+    .is-opening .env-btn {
+      cursor: default
+    }
+
+    .is-opening .seal-in {
+      animation: sealPop .4s ease-in both
+    }
+
+    .is-opening .flap {
+      animation: flapOpen .55s cubic-bezier(.4, 0, .2, 1) .3s both
+    }
+
+    .is-opening .peek {
+      animation: peekUp .55s cubic-bezier(.2, .8, .2, 1) .8s both
+    }
+
+    .is-opening .hint {
+      animation: fadeOut .25s ease both
+    }
+
+    /* ---------- 2. Lettera ---------- */
+    .letter {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 540px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding: clamp(28px, 6vw, 48px);
+      border-radius: 6px;
+      background: #FFFFFF;
+      color: var(--ink);
+      box-shadow: 0 30px 60px rgba(24, 6, 80, 0.55), 0 2px 0 #D9CCFF;
+      animation: letterIn .8s cubic-bezier(.2, .8, .2, 1) both;
+    }
+
+    .letter>* {
+      animation: rise .6s cubic-bezier(.2, .8, .2, 1) both
+    }
+
+    .letter-head {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      animation-delay: .25s
+    }
+
+    .letter-head .label {
+      font-size: 12px;
+      color: var(--label)
+    }
+
+    .letter-head .display {
+      padding-right: 40px;
+      font-size: clamp(32px, 5.2vw, 46px)
+    }
+
+    .letter-body {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+      text-wrap: pretty;
+      animation-delay: .4s;
+    }
+
+    .details {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      border-bottom: 1px dashed #D3C2DF;
+      animation-delay: .55s;
+    }
+
+    .details div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+      border-top: 1px dashed #D3C2DF;
+    }
+
+    .details dt {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--label);
+    }
+
+    .details dd {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 500;
+      text-align: right;
+    }
+
+    .secret {
+      display: inline-block;
+      padding: 7px 14px;
+      background: var(--sun);
+      color: var(--ink);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      animation: wiggle 5s ease-in-out 2s infinite;
+    }
+
+    .letter-foot {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px 24px;
+      padding-top: 4px;
+      animation-delay: .75s;
+    }
+
+    .cta-ring {
+      position: relative;
+      display: inline-flex;
+      color: var(--accent)
+    }
+
+    .cta-ring::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 999px;
+      border: 2px solid currentColor;
+      pointer-events: none;
+      animation: ring 1.8s ease-out 1.6s infinite both;
+    }
+
+    .cta {
+      appearance: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 56px;
+      padding: 0 34px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #FFFFFF;
+      font-family: var(--sans);
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+      box-shadow: 0 10px 22px rgba(30, 10, 82, 0.3);
+      transition: transform .15s ease, filter .15s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .cta .heart {
+      width: 20px;
+      height: 20px
+    }
+
+    .cta:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.08)
+    }
+
+    .cta:active {
+      transform: translateY(1px) scale(.98)
+    }
+
+    .cta:focus-visible,
+    .env-btn:focus-visible {
+      outline: 3px solid var(--sun);
+      outline-offset: 4px
+    }
+
+    .sign {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 20px;
+      color: var(--ink-soft)
+    }
+
+    .letter>.stamp {
+      position: absolute;
+      top: -22px;
+      right: -10px;
+      width: 72px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #FFFFFF;
+      box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.28), 0 8px 16px rgba(40, 12, 110, 0.35);
+      animation: stampIn .5s cubic-bezier(.3, 1.4, .5, 1) .9s both;
+    }
+
+    .stamp .heart {
+      width: 32px;
+      height: 32px
+    }
+
+    /* ---------- 3. Accettato ---------- */
+    .accepted {
+      position: relative;
+      z-index: 2;
+      max-width: 640px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 22px;
+      text-align: center;
+    }
+
+    .accepted>* {
+      animation: rise .6s cubic-bezier(.2, .8, .2, 1) both
+    }
+
+    .accepted>.big-heart {
+      width: 96px;
+      height: 96px;
+      fill: var(--accent);
+      stroke: #FFFFFF;
+      animation: popIn .6s cubic-bezier(.3, 1.5, .5, 1) both, beat 1.8s ease-in-out .7s infinite;
+    }
+
+    .accepted .label {
+      animation-delay: .3s
+    }
+
+    .accepted .display {
+      font-size: clamp(48px, 9vw, 92px);
+      line-height: 1;
+      animation-delay: .45s
+    }
+
+    .accepted-body {
+      margin: 0;
+      max-width: 460px;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #E9E0FF;
+      text-wrap: pretty;
+      animation-delay: .6s;
+    }
+
+    .accepted .sign {
+      font-size: 22px;
+      color: #FFFFFF;
+      animation-delay: .75s
+    }
+
+    .hearts {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+      pointer-events: none
+    }
+
+    .hearts svg {
+      position: absolute;
+      bottom: -48px;
+      animation: heartRise linear infinite both
+    }
+
+    /* ---------- Animazioni ---------- */
+    @keyframes twinkle {
+      from {
+        opacity: .2
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+
+    @keyframes shoot {
+
+      0%,
+      84% {
+        transform: translate(0, 0) rotate(16deg);
+        opacity: 0
+      }
+
+      86% {
+        opacity: 1
+      }
+
+      100% {
+        transform: translate(115vw, 33vw) rotate(16deg);
+        opacity: 0
+      }
+    }
+
+    @keyframes bob {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(-1.5deg)
+      }
+
+      50% {
+        transform: translateY(-10px) rotate(1deg)
+      }
+    }
+
+    @keyframes shadowBob {
+
+      0%,
+      100% {
+        transform: scaleX(1);
+        opacity: .6
+      }
+
+      50% {
+        transform: scaleX(.84);
+        opacity: .35
+      }
+    }
+
+    @keyframes beat {
+
+      0%,
+      48%,
+      100% {
+        transform: scale(1)
+      }
+
+      12% {
+        transform: scale(1.14)
+      }
+
+      24% {
+        transform: scale(1)
+      }
+
+      36% {
+        transform: scale(1.1)
+      }
+    }
+
+    @keyframes hintPulse {
+
+      0%,
+      100% {
+        opacity: .55
+      }
+
+      50% {
+        opacity: 1
+      }
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(14px)
+      }
+
+      to {
+        opacity: 1;
+        transform: none
+      }
+    }
+
+    @keyframes sealPop {
+      0% {
+        transform: scale(1)
+      }
+
+      40% {
+        transform: scale(1.25)
+      }
+
+      100% {
+        transform: scale(0) rotate(40deg);
+        opacity: 0
+      }
+    }
+
+    @keyframes flapOpen {
+      0% {
+        transform: rotateX(0deg);
+        z-index: 4
+      }
+
+      49% {
+        z-index: 4
+      }
+
+      50% {
+        z-index: 1
+      }
+
+      100% {
+        transform: rotateX(180deg);
+        z-index: 1
+      }
+    }
+
+    @keyframes peekUp {
+      to {
+        transform: translateY(-62%)
+      }
+    }
+
+    @keyframes stageOut {
+      to {
+        opacity: 0;
+        transform: scale(1.06) translateY(-12px)
+      }
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0
+      }
+    }
+
+    @keyframes letterIn {
+      0% {
+        opacity: 0;
+        transform: translateY(60px) scale(.9) rotate(2deg)
+      }
+
+      70% {
+        opacity: 1;
+        transform: translateY(-6px) scale(1.01) rotate(-1deg)
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotate(-.6deg)
+      }
+    }
+
+    @keyframes stampIn {
+      0% {
+        opacity: 0;
+        transform: scale(2.4) rotate(-20deg)
+      }
+
+      60% {
+        opacity: 1;
+        transform: scale(.92) rotate(14deg)
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1) rotate(12deg)
+      }
+    }
+
+    @keyframes wiggle {
+
+      0%,
+      86%,
+      100% {
+        transform: rotate(-2deg)
+      }
+
+      89% {
+        transform: rotate(3deg)
+      }
+
+      92% {
+        transform: rotate(-5deg)
+      }
+
+      95% {
+        transform: rotate(2deg)
+      }
+    }
+
+    @keyframes ring {
+      0% {
+        transform: scale(1);
+        opacity: .7
+      }
+
+      100% {
+        transform: scale(1.22, 1.6);
+        opacity: 0
+      }
+    }
+
+    @keyframes popIn {
+      0% {
+        opacity: 0;
+        transform: scale(.2)
+      }
+
+      60% {
+        opacity: 1;
+        transform: scale(1.2)
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1)
+      }
+    }
+
+    @keyframes heartRise {
+      0% {
+        transform: translate(0, 0) rotate(-8deg) scale(.6);
+        opacity: 0
+      }
+
+      12% {
+        opacity: .9
+      }
+
+      50% {
+        transform: translate(18px, -55vh) rotate(8deg) scale(1)
+      }
+
+      100% {
+        transform: translate(-12px, -115vh) rotate(-6deg) scale(1);
+        opacity: 0
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<svg width="0" height="0" style="position: absolute" aria-hidden="true">
-  <symbol id="heart" viewBox="0 0 24 24">
-    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-  </symbol>
-</svg>
+  <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+    <symbol id="heart" viewBox="0 0 24 24">
+      <path
+        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+    </symbol>
+  </svg>
 
-<main class="sky">
-  <div class="stars stars-1" aria-hidden="true"></div>
-  <div class="stars stars-2" aria-hidden="true"></div>
-  <div class="stars stars-3" aria-hidden="true"></div>
-  <div class="moon" aria-hidden="true"></div>
-  <div class="shoot" aria-hidden="true"></div>
-  <div class="hearts" id="hearts" aria-hidden="true"></div>
+  <main class="sky">
+    <div class="stars stars-1" aria-hidden="true"></div>
+    <div class="stars stars-2" aria-hidden="true"></div>
+    <div class="stars stars-3" aria-hidden="true"></div>
+    <div class="moon" aria-hidden="true"></div>
+    <div class="shoot" aria-hidden="true"></div>
+    <div class="hearts" id="hearts" aria-hidden="true"></div>
 
-  <!-- 1. Busta chiusa -->
-  <section class="envelope-screen" id="screen-envelope">
-    <div class="intro">
-      <p class="label">Solo per i tuoi occhi</p>
-      <h1 class="display">C'è una cosa per te, Bubu.</h1>
-    </div>
+    <!-- 1. Busta chiusa -->
+    <section class="envelope-screen" id="screen-envelope">
+      <div class="intro">
+        <p class="label">Solo per i tuoi occhi</p>
+        <h1 class="display">C'è una cosa per te, Bubu.</h1>
+      </div>
 
-    <button type="button" class="env-btn" id="open" aria-label="Apri la busta">
-      <span class="env-float">
-        <span class="env">
-          <span class="env-back"></span>
-          <span class="peek"><i></i><i></i><i></i></span>
-          <span class="env-front">
-            <svg viewBox="0 0 380 250" preserveAspectRatio="none" aria-hidden="true">
-              <polygon points="0,0 190,140 0,250" fill="#FFD84A"></polygon>
-              <polygon points="380,0 190,140 380,250" fill="#FFD84A"></polygon>
-              <polygon points="0,250 190,118 380,250" fill="#FFE375" stroke="#F0B90B"></polygon>
-            </svg>
-          </span>
-          <span class="flap"><i></i></span>
-          <span class="seal">
-            <span class="seal-in"><svg class="heart" aria-hidden="true"><use href="#heart"></use></svg></span>
+      <button type="button" class="env-btn" id="open" aria-label="Apri la busta">
+        <span class="env-float">
+          <span class="env">
+            <span class="env-back"></span>
+            <span class="peek"><i></i><i></i><i></i></span>
+            <span class="env-front">
+              <svg viewBox="0 0 380 250" preserveAspectRatio="none" aria-hidden="true">
+                <polygon points="0,0 190,140 0,250" fill="#FFD84A"></polygon>
+                <polygon points="380,0 190,140 380,250" fill="#FFD84A"></polygon>
+                <polygon points="0,250 190,118 380,250" fill="#FFE375" stroke="#F0B90B"></polygon>
+              </svg>
+            </span>
+            <span class="flap"><i></i></span>
+            <span class="seal">
+              <span class="seal-in"><svg class="heart" aria-hidden="true">
+                  <use href="#heart"></use>
+                </svg></span>
+            </span>
           </span>
         </span>
-      </span>
-      <span class="env-shadow"></span>
-    </button>
+        <span class="env-shadow"></span>
+      </button>
 
-    <p class="hint">Tocca il sigillo per aprire</p>
-  </section>
+      <p class="hint">Tocca il sigillo per aprire</p>
+    </section>
 
-  <!-- 2. Lettera con l'invito -->
-  <section class="letter" id="screen-letter" hidden>
-    <div class="stamp" aria-hidden="true"><svg class="heart"><use href="#heart"></use></svg></div>
+    <!-- 2. Lettera con l'invito -->
+    <section class="letter" id="screen-letter" hidden>
+      <div class="stamp" aria-hidden="true"><svg class="heart">
+          <use href="#heart"></use>
+        </svg></div>
 
-    <div class="letter-head">
-      <p class="label">Invito riservato</p>
-      <h2 class="display" tabindex="-1">Sei invitata a un appuntamento segreto.</h2>
-    </div>
-
-    <p class="letter-body">Cara Bubu, tieniti libera. Il dove non te lo dico: fidati di me, al resto penso io.</p>
-
-    <dl class="details">
-      <div>
-        <dt>Quando</dt>
-        <!-- MODIFICA QUI: scrivi la data al posto di [DATA] -->
-        <dd>Sabato 10/10/2026</dd>
+      <div class="letter-head">
+        <p class="label">Invito riservato</p>
+        <h2 class="display" tabindex="-1">Sei invitata a un appuntamento segreto.</h2>
       </div>
-      <div>
-        <dt>A che ora</dt>
-        <!-- MODIFICA QUI: scrivi l'ora al posto di [ORA] -->
-        <dd>19.00</dd>
+
+      <p class="letter-body">Dolcissima Bubu, tieniti libera. Dudu ti invita ad un appuntamento segreto. Dove non te lo
+        dico, gne. Ti Amo.</p>
+
+      <dl class="details">
+        <div>
+          <dt>Quando</dt>
+          <!-- MODIFICA QUI: scrivi la data al posto di [DATA] -->
+          <dd>Sabato 10/10/2026</dd>
+        </div>
+        <div>
+          <dt>A che ora</dt>
+          <!-- MODIFICA QUI: scrivi l'ora al posto di [ORA] -->
+          <dd>19.00</dd>
+        </div>
+        <div>
+          <dt>Dove</dt>
+          <dd><span class="secret">Top secret</span></dd>
+        </div>
+      </dl>
+
+      <div class="letter-foot">
+        <span class="cta-ring">
+          <button type="button" class="cta" id="accept">
+            <svg class="heart" aria-hidden="true">
+              <use href="#heart"></use>
+            </svg>
+            Accetto
+          </button>
+        </span>
+        <div class="sign">— Dudu</div>
       </div>
-      <div>
-        <dt>Dove</dt>
-        <dd><span class="secret">Top secret</span></dd>
-      </div>
-    </dl>
+    </section>
 
-    <div class="letter-foot">
-      <span class="cta-ring">
-        <button type="button" class="cta" id="accept">
-          <svg class="heart" aria-hidden="true"><use href="#heart"></use></svg>
-          Accetto
-        </button>
-      </span>
-      <div class="sign">— il tuo Dudu</div>
-    </div>
-  </section>
+    <!-- 3. Dopo "Accetto" -->
+    <section class="accepted" id="screen-accepted" hidden>
+      <svg class="big-heart" aria-hidden="true">
+        <use href="#heart"></use>
+      </svg>
+      <p class="label">Invito accettato</p>
+      <h2 class="display" tabindex="-1">Non vedo l'ora.</h2>
+      <p class="accepted-body">Hai detto sì, e adesso non si torna indietro. Ci divertiremo taaaanto.</p>
+      <div class="sign">— Dudu</div>
+    </section>
+  </main>
 
-  <!-- 3. Dopo "Accetto" -->
-  <section class="accepted" id="screen-accepted" hidden>
-    <svg class="big-heart" aria-hidden="true"><use href="#heart"></use></svg>
-    <p class="label">Invito accettato</p>
-    <h2 class="display" tabindex="-1">Non vedo l'ora.</h2>
-    <p class="accepted-body">Hai detto sì, e adesso non si torna indietro. Fai uno screenshot e mandamelo: voglio le prove.</p>
-    <div class="sign">— il tuo Dudu</div>
-  </section>
-</main>
+  <script>
+    (function () {
+      var screens = {
+        envelope: document.getElementById('screen-envelope'),
+        letter: document.getElementById('screen-letter'),
+        accepted: document.getElementById('screen-accepted')
+      };
+      var openBtn = document.getElementById('open');
+      var acceptBtn = document.getElementById('accept');
+      var heartsBox = document.getElementById('hearts');
+      var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var opening = false;
 
-<script>
-(function () {
-  var screens = {
-    envelope: document.getElementById('screen-envelope'),
-    letter: document.getElementById('screen-letter'),
-    accepted: document.getElementById('screen-accepted')
-  };
-  var openBtn = document.getElementById('open');
-  var acceptBtn = document.getElementById('accept');
-  var heartsBox = document.getElementById('hearts');
-  var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var opening = false;
+      function show(name) {
+        Object.keys(screens).forEach(function (key) {
+          screens[key].hidden = key !== name;
+        });
+        var heading = screens[name].querySelector('.display');
+        if (heading && heading.hasAttribute('tabindex')) {
+          heading.focus({ preventScroll: true });
+        }
+        window.scrollTo(0, 0);
+      }
 
-  function show(name) {
-    Object.keys(screens).forEach(function (key) {
-      screens[key].hidden = key !== name;
-    });
-    var heading = screens[name].querySelector('.display');
-    if (heading && heading.hasAttribute('tabindex')) {
-      heading.focus({ preventScroll: true });
-    }
-    window.scrollTo(0, 0);
-  }
+      function launchHearts() {
+        var lefts = [4, 12, 21, 30, 38, 47, 55, 63, 72, 80, 88, 95, 17, 68];
+        var fills = ['#FF5C9D', '#FFD84A', '#FFFFFF'];
+        var ns = 'http://www.w3.org/2000/svg';
+        lefts.forEach(function (left, i) {
+          var size = 18 + (i * 7) % 22;
+          var svg = document.createElementNS(ns, 'svg');
+          var use = document.createElementNS(ns, 'use');
+          use.setAttribute('href', '#heart');
+          svg.appendChild(use);
+          svg.style.left = left + '%';
+          svg.style.width = size + 'px';
+          svg.style.height = size + 'px';
+          svg.style.fill = fills[i % 3];
+          svg.style.animationDuration = (6 + (i * 3) % 5) + 's';
+          svg.style.animationDelay = ((i * 0.45) % 4).toFixed(2) + 's';
+          heartsBox.appendChild(svg);
+        });
+      }
 
-  function launchHearts() {
-    var lefts = [4, 12, 21, 30, 38, 47, 55, 63, 72, 80, 88, 95, 17, 68];
-    var fills = ['#FF5C9D', '#FFD84A', '#FFFFFF'];
-    var ns = 'http://www.w3.org/2000/svg';
-    lefts.forEach(function (left, i) {
-      var size = 18 + (i * 7) % 22;
-      var svg = document.createElementNS(ns, 'svg');
-      var use = document.createElementNS(ns, 'use');
-      use.setAttribute('href', '#heart');
-      svg.appendChild(use);
-      svg.style.left = left + '%';
-      svg.style.width = size + 'px';
-      svg.style.height = size + 'px';
-      svg.style.fill = fills[i % 3];
-      svg.style.animationDuration = (6 + (i * 3) % 5) + 's';
-      svg.style.animationDelay = ((i * 0.45) % 4).toFixed(2) + 's';
-      heartsBox.appendChild(svg);
-    });
-  }
+      openBtn.addEventListener('click', function () {
+        if (opening) return;
+        opening = true;
+        if (calm) {
+          show('letter');
+          return;
+        }
+        screens.envelope.classList.add('is-opening');
+        setTimeout(function () { show('letter'); }, 1600);
+      });
 
-  openBtn.addEventListener('click', function () {
-    if (opening) return;
-    opening = true;
-    if (calm) {
-      show('letter');
-      return;
-    }
-    screens.envelope.classList.add('is-opening');
-    setTimeout(function () { show('letter'); }, 1600);
-  });
-
-  acceptBtn.addEventListener('click', function () {
-    launchHearts();
-    show('accepted');
-  });
-})();
-</script>
+      acceptBtn.addEventListener('click', function () {
+        launchHearts();
+        show('accepted');
+      });
+    })();
+  </script>
 </body>
+
 </html>
